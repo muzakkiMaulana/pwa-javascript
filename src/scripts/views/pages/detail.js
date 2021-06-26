@@ -1,16 +1,18 @@
 import RestaurantDbSource from '../../data/restaurant-api.dicoding';
 import UrlParser from '../../routes/url-parser';
-// import { createRestaurantDetailTemplate } from '../templates/template-creator';
 import { restaurantCategoriesTemplate, restaurantMenusTemplate, restaurantReviewTemplate } from '../templates/template-detail';
 import '../component/detail-content';
 import AddReview from '../../utils/add-review';
+import LikeButtonInitiator from '../../utils/like-button-initiator';
 
 const detail = {
   async render() {
     return `
         <div class="detail-restoran">
           <detail-content></detail-content>
-        </div>`;
+        </div>
+        <div id="likeButtonContainer"></div>
+        `;
   },
 
   async afterRender() {
@@ -34,6 +36,11 @@ const detail = {
       review: restaurantReviewTemplate(restaurantDb.restaurant.customerReviews),
       functionAddReview: AddReview,
     };
+
+    LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      restaurant: restaurantDb.restaurant,
+    });
   },
 };
 

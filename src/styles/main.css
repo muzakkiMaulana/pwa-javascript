@@ -114,7 +114,7 @@ body {
     flex: 1;
     box-sizing: border-box;
     display: inline-block;
-    width: 30%;
+    /* width: 30%; */
     text-align: center;
     line-height: 24px;
     text-transform: uppercase;
@@ -447,7 +447,6 @@ footer p {
 
 .menu-detail:hover::after {
     width: 100%;
-    /* transition: width .3s; */
 }
 
 .review-detail, .review-detail div{
@@ -528,7 +527,7 @@ footer p {
 
 .form-review .btn {
     width: 10%;
-	height: 30px;
+	height: 45px;
 	background: #373A40;
 	border: none;
     cursor: pointer;
@@ -538,8 +537,58 @@ footer p {
 	font-size: 15.5px;
 } 
 
+.form-review input{
+height: 45px !important;
+}
+
   /* .menus-detail{
       gap: 15%;
     } */
 /* end detail */
 
+
+
+/* search */
+
+.container-search{
+    display: grid;  
+    margin-top: 20px;
+    background: #19D3DA;
+    padding: 20px;
+    border-radius: 20px; 
+}
+
+.container-search input{
+    width: 80%;
+    height: 45px;
+}
+
+.container-search button{
+    width: 20%;
+    height: 45px;
+    background: #373A40;
+	border: none;
+    cursor: pointer;
+	border-radius: 5px;
+	color: #EEEEEE;
+	transition: .1s;
+}
+
+/* end search */
+
+.like {
+    font-size: 18px;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background-color: #db0000;
+    color: white;
+    border: 0;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

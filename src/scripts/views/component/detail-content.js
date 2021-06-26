@@ -44,7 +44,7 @@ class DetailContent extends HTMLElement {
             <div tabindex="0"><i class="fas fa-star-half-alt"></i>Rating: ${this.restaurant.rating}</div>
           </div>
         <div tabindex="0" class="description-detail">${this.restaurant.description}</div>
-        <!--<h4 class="content-categories text-black" style="background: #D8E3E7;">Rating: ${this.restaurant.rating}</h4>-->
+        <div tabindex="0" class="description-detail"></div>
       </div>
     </div>
 
@@ -88,9 +88,6 @@ class DetailContent extends HTMLElement {
   }
 
   async addReview() {
-    // console.log(document.querySelector('#add-review'));
-    // const addReviewElement = document.querySelector('#add-review');
-
     await this.functionAddReview.init({
       ElementButtonSubmit: document.querySelector('#btn-add-review'),
       nameReview: document.querySelector('#name-reviewer'),

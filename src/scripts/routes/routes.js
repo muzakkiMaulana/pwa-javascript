@@ -1,7 +1,7 @@
 import listRestaurant from '../views/pages/list-restaurant';
 import favorite from '../views/pages/favorite';
 import detail from '../views/pages/detail';
-import search from '../views/pages/detail';
+import search from '../views/pages/search';
 
 const routes = {
   '/': listRestaurant, // default page

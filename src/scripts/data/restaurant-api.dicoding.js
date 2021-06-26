@@ -1,9 +1,9 @@
 import API_ENDPOINT from '../globals/api-endpoint';
 
 class RestaurantDbSource {
-  static async listRestaurant() {
+  static async listRestaurant(value) {
     let data = '';
-    const response = await fetch(API_ENDPOINT.LIST_RESTAURANT);
+    const response = await fetch(API_ENDPOINT.LIST_RESTAURANT(value));
 
     if (response.status === 200) {
       data = response.json();
