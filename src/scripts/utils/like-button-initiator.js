@@ -1,4 +1,4 @@
-// import FavoriteMovieIdb from '../data/favoritemovie-idb';
+import FavoriteRestaurantIdb from '../data/restaurant-indexdb';
 import { createLikeButtonTemplate, createLikedButtonTemplate } from '../views/templates/template-creator';
 
 const LikeButtonInitiator = {
@@ -20,8 +20,8 @@ const LikeButtonInitiator = {
   },
 
   async isMovieExist(id) {
-    // const movie = await FavoriteMovieIdb.getMovie(id);
-    return false;
+    const movie = await FavoriteRestaurantIdb.getRestaurant(id);
+    return movie;
   },
 
   renderLike() {
@@ -29,8 +29,8 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      // await FavoriteMovieIdb.putMovie(this.movie);
-      // this.renderButton();
+      await FavoriteRestaurantIdb.putRestaurant(this.movie);
+      this.renderButton();
     });
   },
 
@@ -39,8 +39,8 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      // await FavoriteMovieIdb.deleteMovie(this.movie.id);
-      // this.renderButton();
+      await FavoriteRestaurantIdb.deleteRestaurant(this.movie.id);
+      this.renderButton();
     });
   },
 };

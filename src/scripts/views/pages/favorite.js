@@ -1,3 +1,6 @@
+import FavoriteRestaurantIdb from '../../data/restaurant-indexdb';
+import { createListRestaurantTemplate } from '../templates/template-creator';
+
 const favorite = {
   async render() {
     return `
@@ -12,11 +15,11 @@ const favorite = {
   },
 
   async afterRender() {
-    // const movies = await TheMovieDbSource.upcomingMovies();
-    // const moviesContainer = document.querySelector('#movies');
-    // movies.forEach((movie) => {
-    //   moviesContainer.innerHTML += createMovieItemTemplate(movie);
-    // });
+    const movies = await FavoriteRestaurantIdb.getAllRestaurant();
+    const moviesContainer = document.querySelector('#data-restoran');
+    movies.forEach((movie) => {
+      moviesContainer.innerHTML += createListRestaurantTemplate(movie);
+    });
   },
 };
 
