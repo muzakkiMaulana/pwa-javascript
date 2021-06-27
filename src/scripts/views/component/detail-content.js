@@ -75,6 +75,11 @@ class DetailContent extends HTMLElement {
         <button type="button" class="btn" id="btn-add-review">Add review</button>
         </form>
       </div>
+
+      <div class="loading loading-review display-none">
+        <i class="fas fa-circle-notch fa-spin"></i>
+      </div>
+
       <div id="review-content" class="display-grid two-column-grid grid-auto-content text-white">
       </div>
     </div>
@@ -89,6 +94,8 @@ class DetailContent extends HTMLElement {
 
   async addReview() {
     await this.functionAddReview.init({
+      elementLoading: document.querySelector('.loading-review'),
+      elementReview: document.querySelector('#review-content'),
       ElementButtonSubmit: document.querySelector('#btn-add-review'),
       nameReview: document.querySelector('#name-reviewer'),
       descriptionReview: document.querySelector('#description-reviewer'),

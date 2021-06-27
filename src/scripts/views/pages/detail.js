@@ -9,15 +9,22 @@ const detail = {
   async render() {
     return `
         <div class="detail-restoran">
+          <div class="loading">
+            <i class="fas fa-circle-notch fa-spin"></i>
+          </div>
           <detail-content></detail-content>
+          <div id="likeButtonContainer"></div>
         </div>
-        <div id="likeButtonContainer"></div>
         `;
   },
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurantDb = await RestaurantDbSource.detailRestaurant(url.id);
+    const restaurantDb = await RestaurantDbSource.detailRestaurant({
+      element: document.querySelector('detail-content'),
+      elementLoading: document.querySelector('.loading'),
+      id: url.id,
+    });
     const detailElement = document.querySelector('detail-content');
 
     let elementCategories = '';

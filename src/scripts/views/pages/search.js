@@ -10,12 +10,13 @@ const search = {
             <input class="user-review" type="text" id="search" name="enter to search" placeholder="Search..."/>
             <button type="button" class="btn" id="btn-search">Search</button>
         </div>
-        <div class="content-loading">
-            <div class="container" id="data-restoran">
-
-
-            </div>
+        <div class="loading display-none">
+          <i class="fas fa-circle-notch fa-spin"></i>
         </div>
+        <div class="container" id="data-restoran">
+
+
+          </div>
     </div>
       `;
   },
@@ -25,7 +26,11 @@ const search = {
 
     const seacrhButton = document.querySelector('#btn-search');
     seacrhButton.addEventListener('click', async () => {
-      const restaurantDb = await RestaurantDbSource.listRestaurant(seacrhElement.value);
+      const restaurantDb = await RestaurantDbSource.listRestaurant({
+        element: document.querySelector('#data-restoran'),
+        elementLoading: document.querySelector('.loading'),
+        value: seacrhElement.value,
+      });
 
       const restaurantContainer = document.querySelector('#data-restoran');
       restaurantContainer.innerHTML = '';

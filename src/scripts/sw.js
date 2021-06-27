@@ -5,7 +5,11 @@ const { assets } = global.serviceWorkerOption;
 
 // eslint-disable-next-line no-restricted-globals
 self.addEventListener('install', (event) => {
+  // try {
   event.waitUntil(CacheHelper.cachingAppShell([...assets, './']));
+  // } catch (error) {
+  //   console.log(error);
+  // }
 });
 
 // eslint-disable-next-line no-restricted-globals
@@ -16,6 +20,5 @@ self.addEventListener('activate', (event) => {
 // eslint-disable-next-line no-restricted-globals
 self.addEventListener('fetch', (event) => {
   // console.log(event.request);
-
   event.respondWith(CacheHelper.revalidateCache(event.request));
 });

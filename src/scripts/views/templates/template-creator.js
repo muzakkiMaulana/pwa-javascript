@@ -28,6 +28,15 @@ const createLikedButtonTemplate = () => `
   </button>
 `;
 
+const createErrorTemplate = (message) => `
+  <div class="error-message">
+    <i class="fas fa-exclamation"></i>${message}
+  </div>
+`;
+
 export {
-  createListRestaurantTemplate, createLikeButtonTemplate, createLikedButtonTemplate,
+  createListRestaurantTemplate,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
+  createErrorTemplate,
 };

@@ -8,7 +8,6 @@ const routes = {
   '/favorite': favorite,
   '/search': search,
   '/detail/:id': detail,
-  // '/like': Like,
 };
 
 export default routes;

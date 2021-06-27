@@ -592,3 +592,35 @@ height: 45px !important;
     align-items: center;
     justify-content: center;
   }
+
+  .loading {
+      width: 100%;
+    text-align: center;
+    height: 400px;
+  }
+
+  .loading i {
+    font-size: 100px;
+    top: 50%;
+    position: relative;
+  }
+
+
+
+  .display-none{
+      display: none;
+      
+       visibility: hidden;
+  }
+
+  .error-message{
+    text-align: center;
+    color: #EC4646;
+    /* padding: 50px;
+    border-radius: 50px; */
+    font-size: large;
+  }
+
+  .error-message i{
+      margin-right: 50px;
+  }

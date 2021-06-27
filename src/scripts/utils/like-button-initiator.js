@@ -4,24 +4,24 @@ import { createLikeButtonTemplate, createLikedButtonTemplate } from '../views/te
 const LikeButtonInitiator = {
   async init({ likeButtonContainer, restaurant }) {
     this.likeButtonContainer = likeButtonContainer;
-    this.movie = restaurant;
+    this.restaurant = restaurant;
 
     await this.renderButton();
   },
 
   async renderButton() {
-    const { id } = this.movie;
+    const { id } = this.restaurant;
 
-    if (await this.isMovieExist(id)) {
+    if (await this.isrestaurantExist(id)) {
       this.renderLiked();
     } else {
       this.renderLike();
     }
   },
 
-  async isMovieExist(id) {
-    const movie = await FavoriteRestaurantIdb.getRestaurant(id);
-    return movie;
+  async isrestaurantExist(id) {
+    const restaurant = await FavoriteRestaurantIdb.getRestaurant(id);
+    return restaurant;
   },
 
   renderLike() {
@@ -29,7 +29,7 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      await FavoriteRestaurantIdb.putRestaurant(this.movie);
+      await FavoriteRestaurantIdb.putRestaurant(this.restaurant);
       this.renderButton();
     });
   },
@@ -39,7 +39,7 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      await FavoriteRestaurantIdb.deleteRestaurant(this.movie.id);
+      await FavoriteRestaurantIdb.deleteRestaurant(this.restaurant.id);
       this.renderButton();
     });
   },
