@@ -8,10 +8,9 @@ const listRestaurant = {
         <h3 class="daftar-restoran-label">Daftar Restoran</h3>
         <div class="loading">
           <i class="fas fa-circle-notch fa-spin"></i>
+       
         </div>
-        <div class="container display-none" id="data-restoran">
-
-
+        <div class="container" id="data-restoran">
         </div>
     </div>
       `;

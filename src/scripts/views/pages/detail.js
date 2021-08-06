@@ -3,7 +3,7 @@ import UrlParser from '../../routes/url-parser';
 import { restaurantCategoriesTemplate, restaurantMenusTemplate, restaurantReviewTemplate } from '../templates/template-detail';
 import '../component/detail-content';
 import AddReview from '../../utils/add-review';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonInitiator from '../../utils/like-button-presenter';
 
 const detail = {
   async render() {

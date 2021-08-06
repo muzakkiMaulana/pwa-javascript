@@ -1,5 +1,5 @@
 import FavoriteRestaurantIdb from '../../data/restaurant-indexdb';
-import { createListRestaurantTemplate } from '../templates/template-creator';
+import { createListRestaurantTemplate, createListNotFoundTemplate } from '../templates/template-creator';
 
 const favorite = {
   async render() {
@@ -17,9 +17,14 @@ const favorite = {
   async afterRender() {
     const movies = await FavoriteRestaurantIdb.getAllRestaurant();
     const moviesContainer = document.querySelector('#data-restoran');
-    movies.forEach((movie) => {
-      moviesContainer.innerHTML += createListRestaurantTemplate(movie);
-    });
+    if (movies.length) {
+      movies.forEach((movie) => {
+        moviesContainer.innerHTML += createListRestaurantTemplate(movie);
+      });
+    } else {
+      moviesContainer.innerHTML = createListNotFoundTemplate();
+      // console.log('data not found');
+    }
   },
 };
 

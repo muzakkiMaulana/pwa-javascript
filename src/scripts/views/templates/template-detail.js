@@ -11,7 +11,7 @@ const loopingReviewElement = (data) => {
   data.forEach((element) => {
     elementTemplate += `<div class="review-detail display-grid one-column-grid">
       <div class="profile-review"><span>${element.name}</span> | <small>${element.date}</small></div>
-      <div>${element.review}</div>
+      <div id="desc">${element.review}</div>
     </div>
   `;
   });

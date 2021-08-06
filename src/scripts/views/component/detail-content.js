@@ -29,7 +29,19 @@ class DetailContent extends HTMLElement {
       <div style="" class="display-grid one-column-grid">
 
         <div class="detail-img">
-          <img tabindex="0" src="${this.restaurant.pictureId ? CONFIG.BASE_URL + CONFIG.IMAGE_MEDIUM + this.restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${this.restaurant.name}">
+            
+            <picture tabindex="0">
+
+                <source media="(max-width: 600px)" srcset="${this.restaurant.pictureId ? CONFIG.BASE_URL + CONFIG.IMAGE_SMALL + this.restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${this.restaurant.name}" type="image/jpeg">
+                
+                <source media="(max-width: 800px)" srcset="${this.restaurant.pictureId ? CONFIG.BASE_URL + CONFIG.IMAGE_MEDIUM + this.restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${this.restaurant.name}" type="image/jpeg">
+                
+                <img src="${this.restaurant.pictureId ? CONFIG.BASE_URL + CONFIG.IMAGE_LARGE + this.restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${this.restaurant.name}">
+            
+            </picture>
+
+          <!--<img tabindex="0" src="${this.restaurant.pictureId ? CONFIG.BASE_URL + CONFIG.IMAGE_MEDIUM + this.restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${this.restaurant.name}">-->
+          
         </div>
         <div class="categories-detail">
           ${this.categories}
